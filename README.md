@@ -1,7 +1,7 @@
 # Project-One-Recipe-Box
 
 ## Task
-We have been tasked with creating an app that solves a real-world issue that a user can access via mobile as well as in a web-browser. Building of the app exercises knowledge and use of api’s, interactive and dynamic javascript and proper syntax ing html and css.
+We have been tasked with creating an app that solves a real-world issue that a user can access via mobile as well as in a web-browser. Building of the app exercises knowledge and use of api’s, interactive and dynamic javascript and proper syntax in html and css.
 
 
 ## User Story
