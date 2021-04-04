@@ -12,7 +12,7 @@ function addCard(x, y, z) {
 $('#test').append(
 `<h2>${x}</h2><br>
 <img src="${y}"/><br>
-<p>${z}</p>`
+<a href="${z}">View This Recipe</a>`
 )};
 
 
