@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    height: %;
+}
+
+
+header {
+    height: 100px;
+    background-color: lightblue;
+    text-align: center;
+    font-size: 45px;
+    padding-top: 25px;
+}
+
