@@ -5,14 +5,19 @@ var apiId = 'f5e5e3c6'
 var keyPhrase = "";
 //URL for doing a keyword search in the edamam API
 var requestUrl = `https://api.edamam.com/search?q=${keyPhrase}&app_id=${apiId}&app_key=${apiKey}`;
+//Sets the local saved cards in Local Storage to an array so that we can add to it
+var savedCards = [];
 
 //appends recipes to page, for scope purposes leaving arguments to pass later and once we define the variable within the getRecipe function we'll pass those variables in
 function addCard(x, y, z) {
 //body below will have to be changed to wherever we're putting the recipe cards, also styling within the div we're adding on will need to be changed as well as possibly the element itself
 $('#test').append(
-`<h2>${x}</h2><br>
+`<div class='container'>
+<h2>${x}</h2><br>
 <img src="${y}"/><br>
-<a href="${z}">View This Recipe</a>`
+<a href="${z}">View This Recipe</a><br>
+<button type='button' class='saveButton'>Save Recipe</button>
+</div>`
 )};
 
 
@@ -32,14 +37,44 @@ function getRecipe(x) {
 		//calling addCard function above and passing newly defined variables as the arguments before looping through again
         addCard(recipeLabel, recipeImage, recipeLocation);
 		}
+    //newly added save buttons to newly added elements are saved in new variable
+    var saveBtn = document.querySelectorAll('.saveButton');
+    //Click event for new save button using new variable
+    $(saveBtn).click(function(event) {
+    //adds HTML for element attached to save button to variable
+    var newItem = event.target.parentElement.outerHTML;
+    //turns variable storing an element into an object so we can store it
+    var storedItem = {
+        card: newItem
+    }
+    //conditional that sets savedCards to empty if there is nothing in localstorage, if not it adds localstorage items into an array
+    if (JSON.parse(localStorage.getItem('cards')) == null) {
+        savedCards = [];
+    }
+    else {
+    savedCards = JSON.parse(localStorage.getItem('cards'));
+    };
+    //adds object to the end of an array
+    savedCards.push(storedItem);
+    //resets local storage saving cards to new array objects
+    localStorage.setItem('cards', JSON.stringify(savedCards));
+    //resets value of local variable to keep uniform with local storage
+    savedCards = JSON.parse(localStorage.getItem('cards'));
+        })
 	})
 };
 //Adds event for clicking the search button
 $('#submit').click(function() {
+    //empty contents of last search
+    $('#test').empty();
     //changes the keyphrase to value submitted by user
     keyPhrase = $('#text-input').val();
     //sets the new requestUrl with the new keyPhrase
     requestUrl = `https://api.edamam.com/search?q=${keyPhrase}&app_id=${apiId}&app_key=${apiKey}`;
     //calles getRecipe URL with new requestUrl
     getRecipe(requestUrl);
+});
+//button to switch to page storing saved recipes
+$('#switch-page').click(function() {
+    window.location.href = './box.html';
 });
