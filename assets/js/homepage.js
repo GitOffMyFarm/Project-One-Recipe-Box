@@ -14,13 +14,15 @@ var savedCards = [];
 function addCard(x, y, z) {
 //body below will have to be changed to wherever we're putting the recipe cards, also styling within the div we're adding on will need to be changed as well as possibly the element itself
 $('#test').append(
-`<div class='container'>
+`<div class='card'>
+<div class='card-section'>
 <h2>${x}</h2><br>
 <img src="${y}"/><br>
-<a href="${z}">View This Recipe</a><br>
-<button type='button' class='saveButton'>Save Recipe</button>
+<footer><a href="${z}">View This Recipe</a><br>
+<button type='button' class='saveButton'>Save Recipe</button></footer>
 </div>`
 )};
+
 
 function getWine() {
     fetch(spoonUrl)
@@ -31,7 +33,6 @@ function getWine() {
         console.log(data);
     })
 };
-
 //function to fetch API above (represented by x here) and get elements we need from it
 function getRecipe(x) {
     //fetching of API
