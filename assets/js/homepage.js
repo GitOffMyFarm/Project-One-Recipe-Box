@@ -1,6 +1,8 @@
 //required ID's to access the edamam API
 var apiKey = '4cde2fcaa2d223801818ad5248f452a6';
 var apiId = 'f5e5e3c6'
+var spoonKey = 'a51ffaacdc13418abc909cc8018c8e4a';
+var spoonUrl = `https://api.spoonacular.com/food/wine/pairing?food=${keyPhrase}&apiKey=${spoonKey}`;
 //keyphrase that is called within the URL, later we can append the keyphrase and redefine the requestURL variable within a conditional inside of a click event based on what someone has searched
 var keyPhrase = "";
 //URL for doing a keyword search in the edamam API
@@ -21,6 +23,16 @@ $('#test').append(
 </div>`
 )};
 
+
+function getWine() {
+    fetch(spoonUrl)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    })
+};
 //function to fetch API above (represented by x here) and get elements we need from it
 function getRecipe(x) {
     //fetching of API
@@ -78,3 +90,4 @@ $('#submit').click(function() {
 $('#switch-page').click(function() {
     window.location.href = './box.html';
 });
+getWine();
