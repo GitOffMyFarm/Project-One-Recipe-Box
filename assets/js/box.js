@@ -20,9 +20,10 @@ function setCards() {
 	$(newBtn).click(function (event) {
 		//places the parent element (the card) of the clicked remove button in a variable and removes that element on line 23
 		var removeCard = event.target.parentElement;
-		removeCard.remove();
+		var actualRemove = removeCard.parentElement;
+		actualRemove.remove();
 		//places all remaining cards in a variable
-		var remainingCards = document.querySelectorAll('.container');
+		var remainingCards = document.querySelectorAll('.card');
 		//resets savedObject variable to empty (for when button is pressed multiple times in one page view)
 		savedObject = [];
 		//Takes HTML of elements in remainingCards variable, turns them into objects, and then places that object into a new array at savedCards variable
