@@ -54,10 +54,11 @@ function getRecipe(x) {
     //Click event for new save button using new variable
     $(saveBtn).click(function(event) {
     //adds HTML for element attached to save button to variable
-    var newItem = event.target.parentElement.outerHTML;
+    var newItem = event.target.parentElement;
+    var parentItem = newItem.parentElement.outerHTML;
     //turns variable storing an element into an object so we can store it
     var storedItem = {
-        card: newItem
+        card: parentItem
     }
     //conditional that sets savedCards to empty if there is nothing in localstorage, if not it adds localstorage items into an array
     if (JSON.parse(localStorage.getItem('cards')) == null) {
