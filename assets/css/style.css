@@ -1,17 +1,3 @@
-
-* {
-    box-sizing: border-box;
-    height: %;
-}
-
-
-header {
-    height: 100px;
-    background-color: lightblue;
-    text-align: center;
-    font-size: 45px;
-    padding-top: 25px;
-}
 #searchbar {
     display: flex;
     justify-content:space-between;
@@ -35,15 +21,24 @@ header {
     text-align: center;
 }
 
+.card h2 {
+    font-size: x-large;
+
+}
 .card:hover {
     box-shadow: 0 6px 14px 0 rgba(0,0,0,0.2);
     background-color:#D0CCD0;
 }
 
-footer {
-    margin-top: 15px;
-    display: flex;
+.a button {
+    margin-left: 25px;
 }
+.card footer {
+    padding-top: 40px;
+    font-size: large;
+}
+
+
 
 body {
     background-color: #274156;
@@ -51,7 +46,8 @@ body {
 
 .button {
     background-color: #1C6E8C;  
-    border-radius: 5px
+    border-radius: 5px;
+    
 }
 
 .button:hover {
