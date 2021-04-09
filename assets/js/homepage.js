@@ -21,11 +21,14 @@ $('#test').append(
 <img src="${y}" alt='A view of the cooked recipe'/><br>
 <footer><a href="${z}">View This Recipe</a><br>
 <button type='button' class='saveButton'>Save Recipe</button></footer>
+</div>
 </div>`
 )};
-
+//function with arguments to add in variables needed
 function addWineCard(w, x, y, z){
+//adds card class to dive we're pushing this to
 $('#wine-card').addClass('card');
+//adds wine card into targeted div with open options for API objects
 $('#wine-card').append(
 `<div class='card-section'>
 <h2>Possible Wine Pairing's For Your Meal:</h2><br>
@@ -34,16 +37,18 @@ $('#wine-card').append(
 <h3>${x}</h3><br>
 <p>${y} Usually priced at: ${z}</p>`
 )};
-
+//function that fetches wine reccomendation URL
 function getWine(x) {
     fetch(x)
     .then(function (response) {
         return response.json();
     })
+    //if there is no reccomendation it won't show anything
     .then(function (data) {
         if (data.status === 'failure') {
             return;
         }
+        //adds all needed objects into variables then puts them into wine card arguments
         else {
             pairingText = data.pairingText;
             productTitle = data.productMatches[0].title;
@@ -75,10 +80,11 @@ function getRecipe(x) {
     $(saveBtn).click(function(event) {
     //adds HTML for element attached to save button to variable
     var newItem = event.target.parentElement;
-    var parentItem = newItem.parentElement.outerHTML;
+    var parentItem = newItem.parentElement;
+    var finalParent = parentItem.parentElement.outerHTML;
     //turns variable storing an element into an object so we can store it
     var storedItem = {
-        card: parentItem
+        card: finalParent
     }
     //conditional that sets savedCards to empty if there is nothing in localstorage, if not it adds localstorage items into an array
     if (JSON.parse(localStorage.getItem('cards')) == null) {
