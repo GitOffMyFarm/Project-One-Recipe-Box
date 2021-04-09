@@ -21,6 +21,7 @@ $('#test').append(
 <img src="${y}" alt='A view of the cooked recipe'/><br>
 <footer><a href="${z}">View This Recipe</a><br>
 <button type='button' class='saveButton'>Save Recipe</button></footer>
+</div>
 </div>`
 )};
 
