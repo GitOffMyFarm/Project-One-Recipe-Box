@@ -21,6 +21,7 @@ $('#test').append(
 <img src="${y}" alt='A view of the cooked recipe'/><br>
 <footer><a href="${z}">View This Recipe</a><br>
 <button type='button' class='saveButton'>Save Recipe</button></footer>
+</div>
 </div>`
 )};
 //function with arguments to add in variables needed
@@ -79,10 +80,11 @@ function getRecipe(x) {
     $(saveBtn).click(function(event) {
     //adds HTML for element attached to save button to variable
     var newItem = event.target.parentElement;
-    var parentItem = newItem.parentElement.outerHTML;
+    var parentItem = newItem.parentElement;
+    var finalParent = parentItem.parentElement.outerHTML;
     //turns variable storing an element into an object so we can store it
     var storedItem = {
-        card: parentItem
+        card: finalParent
     }
     //conditional that sets savedCards to empty if there is nothing in localstorage, if not it adds localstorage items into an array
     if (JSON.parse(localStorage.getItem('cards')) == null) {
