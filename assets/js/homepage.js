@@ -1,12 +1,13 @@
-//required ID's to access the edamam API
+//required ID's to access the edamam API and Spoonacular API
 var apiKey = '4cde2fcaa2d223801818ad5248f452a6';
 var apiId = 'f5e5e3c6'
 var spoonKey = 'a51ffaacdc13418abc909cc8018c8e4a';
-var spoonUrl = `https://api.spoonacular.com/food/wine/pairing?food=${keyPhrase}&apiKey=${spoonKey}`;
 //keyphrase that is called within the URL, later we can append the keyphrase and redefine the requestURL variable within a conditional inside of a click event based on what someone has searched
 var keyPhrase = "";
 //URL for doing a keyword search in the edamam API
 var requestUrl = `https://api.edamam.com/search?q=${keyPhrase}&app_id=${apiId}&app_key=${apiKey}`;
+//URL for fetch request for wine pairing function
+var spoonUrl = `https://api.spoonacular.com/food/wine/pairing?food=${keyPhrase}&apiKey=${spoonKey}`;
 //Sets the local saved cards in Local Storage to an array so that we can add to it
 var savedCards = [];
 
@@ -17,20 +18,39 @@ $('#test').append(
 `<div class='card'>
 <div class='card-section'>
 <h2>${x}</h2><br>
-<img src="${y}"/><br>
+<img src="${y}" alt='A view of the cooked recipe'/><br>
 <footer><a href="${z}">View This Recipe</a><br>
 <button type='button' class='saveButton'>Save Recipe</button></footer>
 </div>`
 )};
 
+function addWineCard(w, x, y, z){
+$('#wine-card').addClass('card');
+$('#wine-card').append(
+`<div class='card-section'>
+<h2>Possible Wine Pairing's For Your Meal:</h2><br>
+<p>${w}</p><br>
+<h2>Reccomendation:</h2><br>
+<h3>${x}</h3><br>
+<p>${y} Usually priced at: ${z}</p>`
+)};
 
-function getWine() {
-    fetch(spoonUrl)
+function getWine(x) {
+    fetch(x)
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
+        if (data.status === 'failure') {
+            return;
+        }
+        else {
+            pairingText = data.pairingText;
+            productTitle = data.productMatches[0].title;
+            productDescription = data.productMatches[0].description;
+            productPrice = data.productMatches[0].price;
+            addWineCard(pairingText, productTitle, productDescription, productPrice);
+        }
     })
 };
 //function to fetch API above (represented by x here) and get elements we need from it
@@ -83,12 +103,18 @@ $('#submit').click(function() {
     //changes the keyphrase to value submitted by user
     keyPhrase = $('#text-input').val();
     //sets the new requestUrl with the new keyPhrase
-    requestUrl = `https://api.edamam.com/search?q=${keyPhrase}&app_id=${apiId}&app_key=${apiKey}`;
+    requestUrl = `https://api.edamam.com/search?q=${keyPhrase.trim()}&app_id=${apiId}&app_key=${apiKey}`;
     //calles getRecipe URL with new requestUrl
     getRecipe(requestUrl);
+    //splites key phrase between spaces then grabs the first word and makes that the new variable
+    keyPhrase = keyPhrase.split(" ");
+    keyPhrase = keyPhrase[0];
+    //adds that variable into Spoonacular's wine pairing API
+    spoonUrl = `https://api.spoonacular.com/food/wine/pairing?food=${keyPhrase}&apiKey=${spoonKey}`;
+    //Calls the function to get and set wine pairing
+    getWine(spoonUrl);
 });
 //button to switch to page storing saved recipes
 $('#switch-page').click(function() {
     window.location.href = './box.html';
 });
-getWine();
