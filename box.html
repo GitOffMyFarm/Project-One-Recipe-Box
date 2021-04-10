@@ -5,46 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Still the Computer Recipe APplication - CRAP For Short</title>
+    <!--Link to foundation style sheet-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <!--Link to personalized style sheet-->
     <link rel="stylesheet" href="./assets/css/style.css">
-
 </head>
 
 <body>
-    <header>Your Saved Recipes!</header>
-    <div class="container-fluid">
-       <div class="row">
-            <div class="col-3">
-                <span class="navbar" id="search-saved"></span>
-                <ul class="vertical dropdown menu" data-dropdown-menu style="max-width: 250px;">
-                    
-                    <ul><a href="#breakfast">Breakfast</a></ul>
-                    <ul><a href="#lunch">Lunch</a></ul>
-                    <ul><a href="#dinner">Dinner</a></ul>
-
-            </div>
-                <span class="sidebar" id="nav-categories"></span>
-                  <div class="col-9"></div>
-            </div>
-
-         <div id="change-this">
+    <!--Header to show what you're looking at-->
+    <header><h2>Your Saved Recipes!</h2></header>
+        <!--Empty div for saved cards to be dynamically added-->
+         <div id="saved-box">
           
         </div>
+        <!--Link to take you back to the home page-->
         <button class="button" id="switch-page">Back to Search</button>
-        <link href="./homepage.html"></link>
+        <link href="./index.html"></link>
         </div>
     </div>
     <footer>
-        <ul><a class="button large" id="home" href="#./homepage.html">Home</a></ul>
-        
-        <ul>Copyright Lorem Ipsum 2021</ul</footer>
+        <!--Copyright that isn't real but fun-->
+        <ul>Copyright Lorem Ipsum 2021</ul>
+    </footer>
 </body>
 
 </html>    
 
-    <!-- Compressed JavaScript -->
+    <!-- Compressed JavaScript for Jquery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--Foundation specific Javascript-->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    <!--Personalized javascript link-->
     <script src="./assets/js/box.js"></script>
 </body>
 </html>

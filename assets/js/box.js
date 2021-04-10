@@ -1,7 +1,7 @@
 //Takes saved card objects from local storage and stores them in a variable
 var savedCards = [JSON.parse(localStorage.getItem('cards'))];
 //stores div element to place cards into in a variable
-var cardContainer = document.getElementById('change-this');
+var cardContainer = document.getElementById('saved-box');
 //blank variable to later fill to set to local storage
 var savedObject = [];
 //function that sets all stored cards on the page
@@ -41,7 +41,7 @@ function setCards() {
 };
 //changes page back to search page
 $('#switch-page').click(function() {
-    window.location.href = './homepage.html';
+    window.location.href = './index.html';
 });
 //Starts page off by setting the saved cards
 setCards();
