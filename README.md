@@ -20,6 +20,8 @@ WHEN I select a recipe card that I like
 THEN I am able to save the card into a personal recipe box
 WHEN I hit save
 THEN the recipe saves to local storage
+WHEN I go to my saved recipes page
+THEN I can view the recipe cards saved to local storage
 ```
 
 Here is an image of the application: ![Application Image](https://github.com/GitOffMyFarm/Project-One-Recipe-Box/blob/main/assets/images/RecipeBoxImage.png)
