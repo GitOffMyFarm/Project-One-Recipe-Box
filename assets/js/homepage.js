@@ -14,7 +14,7 @@ var savedCards = [];
 //appends recipes to page, for scope purposes leaving arguments to pass later and once we define the variable within the getRecipe function we'll pass those variables in
 function addCard(x, y, z) {
 //body below will have to be changed to wherever we're putting the recipe cards, also styling within the div we're adding on will need to be changed as well as possibly the element itself
-$('#test').append(
+$('#search-results').append(
 `<div class='card'>
 <div class='card-section'>
 <h2>${x}</h2><br>
@@ -33,7 +33,7 @@ $('#wine-card').append(
 `<div class='card-section'>
 <h2>Possible Wine Pairing's For Your Meal:</h2><br>
 <p>${w}</p><br>
-<h2>Reccomendation:</h2><br>
+<h2>Recommendation:</h2><br>
 <h3>${x}</h3><br>
 <p>${y} Usually priced at: ${z}</p>`
 )};
@@ -105,7 +105,7 @@ function getRecipe(x) {
 //Adds event for clicking the search button
 $('#submit').click(function() {
     //empty contents of last search
-    $('#test').empty();
+    $('#search-results').empty();
     //changes the keyphrase to value submitted by user
     keyPhrase = $('#text-input').val();
     //sets the new requestUrl with the new keyPhrase
