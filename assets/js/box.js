@@ -41,7 +41,7 @@ const setCards = () => {
 };
 //changes page back to search page
 $('#switch-page').click(function() {
-    window.location.href = './homepage.html';
+    window.location.href = './index.html';
 });
 //Starts page off by setting the saved cards
 setCards();
