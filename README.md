@@ -1,13 +1,17 @@
 # Project-One-Recipe-Box
 
-## Task
-We have been tasked with creating an app that solves a real-world issue that a user can access via mobile as well as in a web-browser. Building of the app exercises knowledge and use of api’s, interactive and dynamic javascript and proper syntax ing html and css.
-
-
 ## User Story
+
+```md
 AS A Person that loves to cook
 I WANT to be able to efficiently search and collect recipes
 SO THAT I can save them my personal recipe box for future use
+```
+
+## Final Product
+
+```md
+GIVEN I am using the Recipe Box app home page
 WHEN I click the search nav bar
 THEN I am able to input specific recipe criteria
 WHEN I hit search
@@ -16,3 +20,12 @@ WHEN I select a recipe card that I like
 THEN I am able to save the card into a personal recipe box
 WHEN I hit save
 THEN the recipe saves to local storage
+WHEN I go to my saved recipes page
+THEN I can view the recipe cards saved to local storage
+```
+
+Here is an image of the application: ![Application Image](https://github.com/GitOffMyFarm/Project-One-Recipe-Box/blob/main/assets/images/RecipeBoxImage.png)
+
+Link to launched version of the application: https://gitoffmyfarm.github.io/Project-One-Recipe-Box/
+Link to initial proposal and wire frames: https://docs.google.com/document/d/11bEu8wqvTyoUkNaf3AHznF464v-fTknkVEcXHK0drUM/edit?usp=sharing
+Link to slideshow presentation: https://docs.google.com/presentation/d/15XwgshQwImi6EuFYSUS80FiH7h5VNY-7YjZ9Lh47nDY/edit?usp=sharing 
