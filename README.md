@@ -26,4 +26,4 @@ THEN I can view the recipe cards saved to local storage
 
 Here is an image of the application: ![Application Image](https://github.com/GitOffMyFarm/Project-One-Recipe-Box/blob/main/assets/images/RecipeBoxImage.png)
 
-Link to launched version of the application: https://gitoffmyfarm.github.io/Project-One-Recipe-Box/
+Link to launched version of the application: https://gitoffmyfarm.github.io/Recipe-Box/
